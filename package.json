@@ -1,0 +1,29 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.3"
+  },
+  "devDependencies": {
+    "jest": "^28.0.1"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikolasMazur/Team-Profile-Generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NikolasMazur/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/NikolasMazur/Team-Profile-Generator#readme",
+  "description": ""
+}
