@@ -1,7 +1,8 @@
 const Employee = require('../lib/Employee')
 
 test("Checking Employee.js library", () => {
-    expect(e.name).toBe("Jared");
-    expect(e.id).toBe("1");
-    expect(e.email).toBe("jared@fakemail.com")
+    const em = new Employee("jared", 1, "jared@fakemail.com");
+    expect(em.name).toBe("Jared");
+    expect(em.id).toBe("1");
+    expect(em.email).toBe("jared@fakemail.com")
 })
