@@ -23,3 +23,65 @@ const start = async () => {
           break;
       }
 };
+
+// Prompt for creating manager profile
+const addManager = async () => {
+    const { name, id, email, officeNumber } = await inquirer.prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Please enter team manager name.",
+        validate: (nameInput) => {
+            if (nameInput) {
+              return true;
+            } else {
+              console.log("Enter manager's name.");
+              return false;
+            }
+          },
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Please enter team manager ID.",
+        validate: (idInput) => {
+            if (idInput) {
+              return true;
+            } else {
+              console.log("Enter manager's ID number.");
+              return false;
+            }
+          },
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Please enter team manager email address.",
+        validate: (emailInput) => {
+            if (emailInput) {
+              return true;
+            } else {
+              console.log("Enter manager's email address.");
+              return false;
+            }
+          },
+      },
+      {
+        type: "input",
+        name: "officeNumber",
+        message: "Please enter team manager office number.",
+        validate: (officeInput) => {
+          if (officeInput) {
+            return true;
+          } else {
+            console.log("Enter manager's office number.");
+            return false;
+          }
+        },
+      },
+    ]);
+    // Creates manager
+    const manager = new Manager(name, id, email, officeNumber);
+    employeesArr.push(manager);
+    return addUser();
+};
