@@ -14,4 +14,12 @@ const start = async () => {
         choices: ["Add a team", "Close"],
       },
     ]);
+    // Switch to either start team or close application
+    switch (answer.menu) {
+        case "Add a team":
+          return addManager();
+        case "Close":
+          console.log("Application closed.");
+          break;
+      }
 };
