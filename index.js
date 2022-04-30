@@ -101,3 +101,16 @@ const writeToFile = (data) => {
     });
 });
 };
+  
+function init() {
+    start()
+    .then((response) => {
+    return generate.generatePage(response);
+    })
+    .then((res) => {
+        writeToFile(res);
+        console.log("HTML page successfully generated.");
+    });
+}
+
+init();
