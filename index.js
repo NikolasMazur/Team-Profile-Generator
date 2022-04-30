@@ -85,3 +85,19 @@ const addManager = async () => {
     employeesArr.push(manager);
     return addUser();
 };
+
+// Write information to HTML page
+const writeToFile = (data) => {
+    return new Promise((resolve, reject) => {
+    fs.writeFile("./dist/index.html", data, (err) => {
+    if (err) {
+        reject(err);
+        return;
+    }
+    resolve({
+        ok: true,
+        message: "File successfully created.",
+    });
+    });
+});
+};
