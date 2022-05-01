@@ -26,7 +26,21 @@ const generate = (employeesArr) => {
             }
         }
     }
-}
+    
+    // Arrays to Hold HTML for Each Employee Card by Role
+    let managerCardsContent = [];
+    let engineerCardsContent = [];
+    let internCardsContent = [];
+
+    // Generate Arrays of Employee Cards
+    getManagers(employeesArr);
+    getEmgineers(employeesArr);
+    getInters(employeesArr);
+
+// Add/format HTML generation
+    // return `
+    // `
+};
 
 // Funtion to write file and path
 const generatePage = (employeesArr) => {
