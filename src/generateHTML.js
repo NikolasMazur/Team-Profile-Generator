@@ -37,9 +37,28 @@ const generate = (employeesArr) => {
     getEmgineers(employeesArr);
     getInters(employeesArr);
 
-// Add/format HTML generation
-    // return `
-    // `
+    return `
+    <!DOCTYPE html>
+    <HTML lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>My Team</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>My Team</h1>
+        </header>
+
+        <main>
+
+        </main>
+    </body>
+    </html>`
 };
 
 // Funtion to write file and path
