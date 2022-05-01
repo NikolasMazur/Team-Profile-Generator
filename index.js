@@ -137,6 +137,75 @@ const addEngineer = async () => {
     return employeesArr;
 };
 
+const addIntern = async () => {
+    const { name, id, email, school, addEmployee } = await inquirer
+        .prompt([
+            {
+              type: "input",
+              name: "name",
+              message: "What is the intern's name? (Required)",
+              validate: (nameInput) => {
+                if (nameInput) {
+                  return true;
+                } else {
+                  console.log("Enter intern's name.");
+                  return false;
+                }
+              },
+            },
+            {
+              type: "input",
+              name: "id",
+              message: "What is the intern's ID? (Required)",
+              validate: (idInput) => {
+                if (idInput) {
+                  return true;
+                } else {
+                  console.log("Enter intern's ID.");
+                  return false;
+                }
+              },
+            },
+            {
+              type: "input",
+              name: "email",
+              message: "What is the intern's email? (Required)",
+              validate: (emailInput) => {
+                if (emailInput) {
+                  return true;
+                } else {
+                  console.log("Enter intern's email.");
+                  return false;
+                }
+              },
+            },
+            {
+              type: "input",
+              name: "school",
+              message: "What's your intern's school?",
+              validate: (schoolInput_1) => {
+                if (schoolInput_1) {
+                  return true;
+                } else {
+                  console.log("Enter the intern's school.");
+                  return false;
+                }
+            },
+        },
+        {
+            type: "confirm",
+            name: "addEmployee",
+            message: "Do you want to add another employee?",
+            default: "true",
+        },
+       ]);
+    employeesArr.push(new Intern(name, id, email, school));
+    if (addEmployee) {
+       return addUser();
+    }
+    return employeesArr;
+};
+
 // Write information to HTML page
 const writeToFile = (data) => {
     return new Promise((resolve, reject) => {
