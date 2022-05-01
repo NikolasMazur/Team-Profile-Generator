@@ -88,6 +88,24 @@ const addManager = async () => {
     return addUser();
 };
 
+// Prompt for adding a new user
+const addUser = async () => {
+    const choices = await inquirer
+      .prompt({
+        type: "list",
+        name: "role",
+        message: "Which employee type is being added?",
+        choices: ["Engineer", "Intern"],
+      });
+    switch (choices.role) {
+      default:
+      case "Engineer":
+        return addEngineer();
+      case "Intern":
+        return addIntern();
+    }
+};
+
 // Prompt for creating engineer
 const addEngineer = async () => {
     const { name, id, email, github, addEmployee } = await inquirer
@@ -137,6 +155,7 @@ const addEngineer = async () => {
     return employeesArr;
 };
 
+// Prompt for creating Intern
 const addIntern = async () => {
     const { name, id, email, school, addEmployee } = await inquirer
         .prompt([
