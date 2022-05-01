@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+
+// Employee classes
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -84,6 +86,55 @@ const addManager = async () => {
     const manager = new Manager(name, id, email, officeNumber);
     employeesArr.push(manager);
     return addUser();
+};
+
+// Prompt for creating engineer
+const addEngineer = async () => {
+    const { name, id, email, github, addEmployee } = await inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "What is the engineer's name? (Required)",
+          validate: validateName
+        },
+        {
+          type: "input",
+          name: "id",
+          message: "What is the engineer's ID? (Required)",
+          validate: validateId
+        },
+        {
+          type: "input",
+          name: "email",
+          message: "What is the engineer's email? (Required)",
+          validate: validateEmail
+        },
+        {
+          type: "input",
+          name: "github",
+          message: "What's your engineer's GitHub username?",
+          validate: (githubInput_1) => {
+            if (githubInput_1) {
+              return true;
+            } else {
+              console.log("Please enter the engineer's GitHub username!");
+              return false;
+            }
+          },
+        },
+        {
+          type: "confirm",
+          name: "addEmployee",
+          message: "Do you want to add another employee?",
+          default: "true",
+        },
+      ]);
+    employeesArr.push(new Engineer(name, id, email, github));
+    if (addEmployee) {
+      return addUser();
+    }
+    return employeesArr;
 };
 
 // Write information to HTML page
